@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property(nonatomic,strong)UIButton *testBtn;
 @end
 
 @implementation ViewController
@@ -17,8 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self.view addSubview:self.testBtn];
 }
+- (UIButton *)testBtn{
+    if (!_testBtn) {
+        _testBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _testBtn.frame = CGRectMake(100, 200, 45, 45);
+        [_testBtn setImage:[UIImage imageNamed:@"share_Facebook_nor"] forState:UIControlStateNormal];
+        [_testBtn setImage:[UIImage imageNamed:@"share_Facebook_pre"] forState:UIControlStateHighlighted];
 
+    }
+    return _testBtn;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
